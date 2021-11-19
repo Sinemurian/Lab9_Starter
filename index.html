@@ -107,20 +107,19 @@
       // step 3
       try {
         console.log(typeof parseInt(firstNum));
-        // typoef
-        if (typeof parseInt(firstNum) != number){
+        if (firstNum.includes('a')){
           throw new customError;
         }
-        else if (typeof parseInt(secondNum) != number){
+        else if (firstNum.include('a')){
           throw new Error;
         }
       } catch (Error) {
-        // part 4
+        // step 4
         if (Error instanceof customError){
-          alert("string in second box");
+          alert("first box contains a");
         }
         else {
-          alert("string in first box");
+          alert("first box does not contain a");
         }
       } finally {
         alert("finally");
