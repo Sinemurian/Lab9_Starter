@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "9452232caccb4db2abd4c823f03a1914"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+</script>              
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,6 +103,28 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
+      
+      // step 3
+      try {
+        console.log(typeof parseInt(firstNum));
+        // typoef
+        if (typeof parseInt(firstNum) != number){
+          throw new customError;
+        }
+        else if (typeof parseInt(secondNum) != number){
+          throw new Error;
+        }
+      } catch (Error) {
+        // part 4
+        if (Error instanceof customError){
+          alert("string in second box");
+        }
+        else {
+          alert("string in first box");
+        }
+      } finally {
+        alert("finally");
+      }
       output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
     });
 
@@ -119,19 +149,6 @@
     errorBtns[13].addEventListener("click", function() {console.trace("Trace");});
     errorBtns[14].addEventListener("click", function() {const v = 0; v = 1;});
 
-    // Part 3
-    try {
-      let firstNum = document.querySelector('#first-num').value; 
-      console.log(firstNum.isNan());
-      if (firstNum.isNan() && firstNum != ''){
-        throw err;
-      }
-    } catch (err) {
-      alert("string as number");
-    } finally {
-      alert("finally");
-    }
-
     // Part 4
     class customError extends Error {
       constructor(message) {
@@ -139,10 +156,10 @@
         this.name = "Custom Error";
       }
     }
-    throw(customError);
 
     // Part 5
-
+    TrackJS.track('Testing TrackJS!');
+                                     
     // You may move this JS to another file if you wish
   </script>
 </body>
