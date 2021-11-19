@@ -101,6 +101,48 @@
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
     // Start your code here
+
+    // Part 2
+    errorBtns[0].addEventListener("click", function() {console.log("Log");});
+    errorBtns[1].addEventListener("click", function() {console.error("Error");});
+    errorBtns[2].addEventListener("click", function() {console.count("Count");});
+    errorBtns[3].addEventListener("click", function() {console.warn("Warn");});
+    errorBtns[4].addEventListener("click", function() {console.assert("Assert");});
+    errorBtns[5].addEventListener("click", function() {console.clear("Clear");});
+    errorBtns[6].addEventListener("click", function() {console.dir("Dir");});
+    errorBtns[7].addEventListener("click", function() {console.dirxml("Dirxml");});
+    errorBtns[8].addEventListener("click", function() {console.group("Group Start");});
+    errorBtns[9].addEventListener("click", function() {console.groupEnd("Group End");});
+    errorBtns[10].addEventListener("click", function() {console.table("Table");});
+    errorBtns[11].addEventListener("click", function() {console.time("Timer");});
+    errorBtns[12].addEventListener("click", function() {console.timeEnd("Timer");});
+    errorBtns[13].addEventListener("click", function() {console.trace("Trace");});
+    errorBtns[14].addEventListener("click", function() {const v = 0; v = 1;});
+
+    // Part 3
+    try {
+      let firstNum = document.querySelector('#first-num').value; 
+      console.log(firstNum.isNan());
+      if (firstNum.isNan() && firstNum != ''){
+        throw err;
+      }
+    } catch (err) {
+      alert("string as number");
+    } finally {
+      alert("finally");
+    }
+
+    // Part 4
+    class customError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "Custom Error";
+      }
+    }
+    throw(customError);
+
+    // Part 5
+
     // You may move this JS to another file if you wish
   </script>
 </body>
